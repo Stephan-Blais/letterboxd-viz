@@ -21,7 +21,7 @@ df['Release Month'].replace(month_dict, inplace =True)
 
 df_dupes = pd.read_csv("https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/TMDB%20w%20Dupes.csv")
 df_dupes['Release Month'].replace(month_dict, inplace =True)
-# Using this for variable chart
+# Using this for other chart versions
 
 df_genre_listed = pd.read_csv("https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/TMDB%20w%20Genre%20%23%20Cols.csv")
 df_genre_listed = df_genre_listed.drop(columns = ['Unnamed: 0', 'ID', 'Release Year', 'Release Month', 'Release Day', 'Poster Path'])
@@ -151,7 +151,6 @@ def update_my_graph(genre_chosen,interval_chosen):
         table_title = 'List of Films in Selected Genres'
 
         return barchart_title, fig, table_title, table 
-        # 'Count of Selected Genres By ' + f'{interval_chosen}'
     
     else:
         fig = px.bar(dff, 
@@ -168,7 +167,6 @@ def update_my_graph(genre_chosen,interval_chosen):
         table_title = 'List of All Films'
 
         return barchart_title, fig, table_title, table 
-        # 'Count of All Films By ' + f'{interval_chosen}'
 
 
 if __name__ == '__main__':
