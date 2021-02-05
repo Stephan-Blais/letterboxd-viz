@@ -35,13 +35,24 @@ app.layout = html.Div([
     html.Center(
         html.H1("Stephan's Letterboxd Dashboard")
     ),
+    
 
+    html.Center(
+        html.I(
+            children = '(Refresh page to quickly reset selections below to default)'
+        ),
+    ),
+
+    html.Br(),
+
+    html.Center(
     dcc.Checklist(
         id = 'checklist',
 
         options = [{'label':str(g),'value':g} for g in sorted(df_dupes['Genre'].unique())],
         value = [],
-        labelStyle={'display': 'inline-block'}
+        labelStyle={'display': 'inline-block'},
+    )
     ),
 
     html.Br(),
@@ -52,14 +63,12 @@ app.layout = html.Div([
             {'label': 'Release Year', 'value': 'Release Year'},
             {'label': 'Release Month', 'value': 'Release Month'},
             {'label': 'Release Day', 'value': 'Release Day'},],
-        value = 'Release Year'
+        value = 'Release Year',
+        clearable = False,
     ),
 
     html.Br(),
-
-    html.I(
-        children = '(Refresh page to quickly reset selections to default)'
-    ),
+    html.Br(),
 
     html.Center(
         html.H3(id = 'barchart-title', children = [''])
