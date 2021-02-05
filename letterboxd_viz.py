@@ -15,16 +15,15 @@ month_dict = {1: 'January', 2: 'February', 3:'March',
 10:'October',11:'November',12:'December'}
 # Dataframes have numbers for month, converting to actual month names
 
-df = pd.read_csv("TMDB w Genre # Cols.csv")
+df = pd.read_csv('https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/TMDB%20w%20Binary%20Genre.csv')
 df['Release Month'].replace(month_dict, inplace =True)
 # Using df with non-duplicated rows for "Total Count of All Films" view
 
-df_dupes = pd.read_csv("TMDB w Dupes.csv")
+df_dupes = pd.read_csv("https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/TMDB%20w%20Dupes.csv")
 df_dupes['Release Month'].replace(month_dict, inplace =True)
 # Using this for variable chart
 
-
-df_genre_listed = pd.read_csv("TMDB w Genre # Cols.csv")
+df_genre_listed = pd.read_csv("https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/TMDB%20w%20Genre%20%23%20Cols.csv")
 df_genre_listed = df_genre_listed.drop(columns = ['Unnamed: 0', 'ID', 'Release Year', 'Release Month', 'Release Day', 'Poster Path'])
 # Using this for datatable
 
