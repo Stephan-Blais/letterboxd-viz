@@ -31,7 +31,11 @@ df_genre_listed = df_genre_listed.drop(columns = ['Unnamed: 0', 'ID', 'Release Y
 # App layout
 
 app.layout = html.Div([
-    
+
+    html.Center(
+        html.H1("Stephan's Letterboxd Dashboard")
+    ),
+
     dcc.Checklist(
         id = 'checklist',
 
