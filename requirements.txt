@@ -61,7 +61,7 @@ pyparsing==2.4.7
 # pyrsistent @ file:///C:/ci/pyrsistent_1600141795814/work
 python-dateutil==2.8.1
 pytz==2020.5
-pywin32==300
+# pywin32==300
 pywinpty==0.5.7
 pyzmq==21.0.1
 # qtconsole @ file:///tmp/build/80754af9/qtconsole_1600870028330/work
