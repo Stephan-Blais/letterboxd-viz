@@ -143,6 +143,10 @@ def update_my_graph(genre_chosen,interval_chosen):
 
         if interval_chosen == 'Release Month':
             fig.update_layout(xaxis={'categoryorder':'array', 'categoryarray': list(month_dict.values())})
+            fig.update_traces(hovertemplate = 'Month: %{label}<br>Films: %{value}')
+
+        if interval_chosen == 'Release Day':
+            fig.update_traces(hovertemplate = 'Day of Month: %{label}<br>Films: %{value}')
 
         barchart_title =  f'Count of {genre_chosen[0]} Films By '+ f'{interval_chosen}'
 
@@ -169,6 +173,10 @@ def update_my_graph(genre_chosen,interval_chosen):
 
         if interval_chosen == 'Release Month':
             fig.update_layout(xaxis={'categoryorder':'array', 'categoryarray': list(month_dict.values())})
+            fig.update_traces(hovertemplate = 'Month: %{label}<br>Films: %{value}')
+
+        if interval_chosen == 'Release Day':
+            fig.update_traces(hovertemplate = 'Day of Month: %{label}<br>Films: %{value}')
 
         barchart_title = 'Count of Selected Genres By ' + f'{interval_chosen}'
 
@@ -184,9 +192,13 @@ def update_my_graph(genre_chosen,interval_chosen):
                                     y = dff['Count of All Films'],
         )
         fig.update_traces(hovertemplate = 'Year: %{label}<br>Films: %{value}'),
-        
+
         if interval_chosen == 'Release Month':
             fig.update_layout(xaxis={'categoryorder':'array', 'categoryarray': list(month_dict.values())})
+            fig.update_traces(hovertemplate = 'Month: %{label}<br>Films: %{value}')
+
+        if interval_chosen == 'Release Day':
+            fig.update_traces(hovertemplate = 'Day of Month: %{label}<br>Films: %{value}')
         
         barchart_title = 'Count of All Films By ' + f'{interval_chosen}'
 
