@@ -32,18 +32,17 @@ df_genre_listed = df_genre_listed.drop(columns = ['Unnamed: 0', 'ID', 'Release Y
 
 app.layout = html.Div([
 
-    # html.Center(
-    #     html.Img(src = 'https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/Assets/lb_dashboard.jpg',
-    #                 width = 640,
-    #                 height = 360,
-    # )
-    # ),
-
-    html.Center(
-    html.Img(src = 'https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/Assets/lb_dashboard_no_background.jpg',
-                width = 640,
-                height = 360,
-    )
+    html.A([
+        html.Center(
+            html.Img(src = 'https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/Assets/lb_dashboard_no_background.jpg',
+                    width = 640,
+                    height = 360,
+                    )
+                )
+    ],
+        href = 'https://letterboxd.com/stephanblais/',
+        target = '_blank',
+        rel = 'noreferrer noopener',   
     ),
     
 
