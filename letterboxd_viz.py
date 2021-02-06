@@ -117,7 +117,7 @@ app.layout = html.Div([
 
 def update_my_graph(genre_chosen,interval_chosen):
 
-    df_sub = df_dupes.groupby(['Genre', interval_chosen]).size().reset_index(name = 'Count of Films')
+    df_sub = df_dupes.groupby(['Genre', interval_chosen]).size().reset_index(name = 'Count_of_Films')
     df_sub['Genre_Filter'] = df_sub['Genre']
     df_sub = df_sub[(df_sub['Genre_Filter'].isin(genre_chosen))]
     
@@ -134,9 +134,13 @@ def update_my_graph(genre_chosen,interval_chosen):
     if len(genre_chosen) == 1:
         fig = px.bar(df_sub,
                             x = df_sub[interval_chosen],
-                            y = df_sub['Count of Films'],
+                            y = df_sub['Count_of_Films'],
+                            labels = dict(Count_of_Films = f'Count of {genre_chosen[0]} Films'),
                             color= df_sub['Genre']
         )
+
+        fig.update_traces(hovertemplate = 'Year: %{label}<br>Films: %{value}'),
+
         if interval_chosen == 'Release Month':
             fig.update_layout(xaxis={'categoryorder':'array', 'categoryarray': list(month_dict.values())})
 
@@ -153,12 +157,16 @@ def update_my_graph(genre_chosen,interval_chosen):
         fig = px.bar(df_sub,
                             title= '<b>Note:</b> Films can have more than 1 genre' + 
                             '<br>When selecting more than 1 genre, the chart shifts to represent the '+
-                            '<i>Count of Selected Genres</i> '+
-                            'rather than the <i>Absolute Number of Films</i>',
+                            '<i>Count of Selected Genres</i>,' +
+                            '<br>rather than the <i>Absolute Number of Films</i>',
                             x = df_sub[interval_chosen],
-                            y = df_sub['Count of Films'],
+                            y = df_sub['Count_of_Films'],
+                            labels = dict(Count_of_Films = 'Count of Films in Selected Genres'),
                             color= df_sub['Genre']
             )
+
+        fig.update_traces(hovertemplate = 'Year: %{label}<br>Films: %{value}'),
+
         if interval_chosen == 'Release Month':
             fig.update_layout(xaxis={'categoryorder':'array', 'categoryarray': list(month_dict.values())})
 
@@ -175,6 +183,8 @@ def update_my_graph(genre_chosen,interval_chosen):
                                     x = dff[interval_chosen],
                                     y = dff['Count of All Films'],
         )
+        fig.update_traces(hovertemplate = 'Year: %{label}<br>Films: %{value}'),
+        
         if interval_chosen == 'Release Month':
             fig.update_layout(xaxis={'categoryorder':'array', 'categoryarray': list(month_dict.values())})
         
