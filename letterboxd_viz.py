@@ -33,7 +33,7 @@ df_genre_listed = df_genre_listed.drop(columns = ['Unnamed: 0', 'ID', 'Release Y
 app.layout = html.Div([
 
     html.Center(
-        html.H1("Stephan's Letterboxd Dashboard")
+        html.Img(src = 'Assets\lb_dashboard.jpg')
     ),
     
 
