@@ -34,19 +34,18 @@ df_genre_listed['Release Date'] = pd.to_datetime(df_genre_listed['Release Date']
 
 app.layout = html.Div([
 
-    html.A([
-        html.Center(
+    html.Center(
+        html.A([
             html.Img(src = 'https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/Assets/lb_dashboard_no_background.jpg',
                     width = 640,
                     height = 360,
                     )
-                )
-    ],
-        href = 'https://letterboxd.com/stephanblais/',
-        target = '_blank',
-        rel = 'noreferrer noopener',   
+        ],
+            href = 'https://letterboxd.com/stephanblais/',
+            target = '_blank',
+            rel = 'noreferrer noopener',   
+        ),
     ),
-    
 
     html.Center(
         html.I(
