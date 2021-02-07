@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import datetime as dt
 
 app = dash.Dash(__name__)
 
@@ -25,6 +26,7 @@ df_dupes['Release Month'].replace(month_dict, inplace =True)
 
 df_genre_listed = pd.read_csv("https://raw.githubusercontent.com/Stephan-Blais/letterboxd-viz/main/TMDB%20w%20Genre%20%23%20Cols.csv")
 df_genre_listed = df_genre_listed.drop(columns = ['Unnamed: 0', 'ID', 'Release Year', 'Release Month', 'Release Day', 'Poster Path'])
+df_genre_listed['Release Date'] = pd.to_datetime(df_genre_listed['Release Date']).dt.date
 # Using this for datatable
 
 # ------------------------------------------------------------------------------
